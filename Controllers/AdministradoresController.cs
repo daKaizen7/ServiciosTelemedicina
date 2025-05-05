@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ServiciosTelemedicina.Models;
-using Telemedicina.Services;
+using ServiciosTelemedicina.Services;
 
 namespace ServiciosTelemedicina.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AdministradorController : ControllerBase
+    public class AdministradoresController : ControllerBase
     {
         private readonly AdministradorService _service;
 
-        public AdministradorController(AdministradorService service)
+        public AdministradoresController(AdministradorService service)
         {
             _service = service;
         }
@@ -32,12 +32,6 @@ namespace ServiciosTelemedicina.Controllers
             return Ok(admin);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] Administrador admin)
-        {
-            var created = await _service.CreateAsync(admin);
-            return CreatedAtAction(nameof(GetById), new { id = created.IdUsuario }, created);
-        }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] Administrador admin)

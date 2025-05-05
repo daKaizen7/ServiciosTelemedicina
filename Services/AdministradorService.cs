@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ServiciosTelemedicina.Models;
 
-namespace Telemedicina.Services
+namespace ServiciosTelemedicina.Services
 {
     public class AdministradorService
     {
@@ -23,12 +23,6 @@ namespace Telemedicina.Services
                 .FirstOrDefaultAsync(a => a.IdUsuario == id);
         }
 
-        public async Task<Administrador> CreateAsync(Administrador admin)
-        {
-            _context.Usuarios.Add(admin);
-            await _context.SaveChangesAsync();
-            return admin;
-        }
 
         public async Task<bool> UpdateAsync(int id, Administrador admin)
         {
