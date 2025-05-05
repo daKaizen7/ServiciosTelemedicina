@@ -19,6 +19,15 @@ namespace ServiciosTelemedicina
             builder.Services.AddScoped<PacienteService>();
             builder.Services.AddScoped<TerapeutaService>();
             builder.Services.AddScoped<UsuarioService>();
+            builder.Services.AddScoped<DiagnosticoService>();
+            builder.Services.AddScoped<CitaService>();
+            builder.Services.AddScoped<TratamientoService>();
+            builder.Services.AddScoped<HistoriaClinicaService>();
+            builder.Services.AddScoped<AntecedenteService>();
+            builder.Services.AddScoped<InformeService>();
+            builder.Services.AddScoped<NotificacionService>();
+
+
 
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
