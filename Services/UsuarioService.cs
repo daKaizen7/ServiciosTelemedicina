@@ -26,7 +26,7 @@ namespace ServiciosTelemedicina.Services
 
         public async Task<Usuario> CrearUsuarioAsync(UsuarioDto dto)
         {
-            var usuario = UsuarioFactory.CrearUsuario(dto);
+            var usuario = UsuarioFactory.CrearUsuario(dto);//Aquí se llama al Factory Method para crear el usuario según su rol.
             _context.Usuarios.Add(usuario);
             await _context.SaveChangesAsync();
             return usuario;
