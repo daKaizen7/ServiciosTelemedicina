@@ -6,10 +6,6 @@ namespace ServiciosTelemedicina.Models;
 
 public partial class TelemedicinaDbContext : DbContext
 {
-    public TelemedicinaDbContext()
-    {
-    }
-
     public TelemedicinaDbContext(DbContextOptions<TelemedicinaDbContext> options)
         : base(options)
     {
