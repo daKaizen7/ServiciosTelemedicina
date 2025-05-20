@@ -1,6 +1,5 @@
 ﻿using ServiciosTelemedicina.Models;
 using ServiciosTelemedicina.Models.DTOs;
-using System;
 
 namespace ServiciosTelemedicina.Factories
 {
@@ -19,7 +18,10 @@ namespace ServiciosTelemedicina.Factories
                         Contrasena = dto.Contrasena,
                         Telefono = dto.Telefono,
                         Correo = dto.Correo,
-                        Activo = dto.Activo
+                        FechaNacimiento = dto.FechaNacimiento,
+                        Activo = dto.Activo,
+                        Permisos = dto.Permisos,
+                        Rol= "Administrador"
                     };
                 }
 
@@ -34,7 +36,9 @@ namespace ServiciosTelemedicina.Factories
                         Contrasena = dto.Contrasena,
                         Telefono = dto.Telefono,
                         Correo = dto.Correo,
-                        Direccion = dto.Direccion
+                        FechaNacimiento = dto.FechaNacimiento,
+                        Direccion = dto.Direccion,
+                        Rol = "Paciente"
                     };
                 }
 
@@ -49,7 +53,9 @@ namespace ServiciosTelemedicina.Factories
                         Contrasena = dto.Contrasena,
                         Telefono = dto.Telefono,
                         Correo = dto.Correo,
-                        Cargo = dto.Cargo
+                        FechaNacimiento = dto.FechaNacimiento,
+                        Cargo = dto.Cargo,
+                        Rol = "Terapeuta"
                     };
                 }
 

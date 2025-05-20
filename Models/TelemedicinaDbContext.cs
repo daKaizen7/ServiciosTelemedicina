@@ -33,7 +33,6 @@ public partial class TelemedicinaDbContext : DbContext
 
     public virtual DbSet<Paciente> Pacientes { get; set; }
 
-    public virtual DbSet<PermisosAdministrador> PermisosAdministradores { get; set; }
 
     public virtual DbSet<Terapeuta> Terapeutas { get; set; }
 
@@ -191,22 +190,6 @@ public partial class TelemedicinaDbContext : DbContext
             modelBuilder.Entity<Paciente>().HasBaseType<Usuario>();
         });
 
-        modelBuilder.Entity<PermisosAdministrador>(entity =>
-        {
-            entity.HasKey(e => e.IdAdmin).HasName("PK_PermisoAdministradores");
-
-            entity.Property(e => e.IdAdmin)
-                .ValueGeneratedNever()
-                .HasColumnName("Id_admin");
-            entity.Property(e => e.Permiso)
-                .HasMaxLength(100)
-                .IsUnicode(false);
-
-            entity.HasOne(d => d.IdAdminNavigation).WithOne(p => p.PermisosAdministradore)
-                .HasForeignKey<PermisosAdministrador>(d => d.IdAdmin)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__PermisosA__Id_ad__3D5E1FD2");
-        });
 
         modelBuilder.Entity<Terapeuta>(entity =>
         {

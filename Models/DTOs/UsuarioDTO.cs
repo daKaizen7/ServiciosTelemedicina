@@ -10,10 +10,11 @@ namespace ServiciosTelemedicina.Models.DTOs
     public string Contrasena { get; set; } = null!;
     public string? Telefono { get; set; }
     public string? Correo { get; set; }
-
+    public DateTime? FechaNacimiento { get; set; }
     public string? Rol { get; set; }
     public string? Direccion { get; set; }    // Paciente
     public string? Cargo { get; set; }        // Terapeuta
     public bool? Activo { get; set; }         // Administrador
+    public bool? Permisos { get; set; }        // Administrador
     }
 }

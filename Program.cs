@@ -34,6 +34,18 @@ namespace ServiciosTelemedicina
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // Configuración de CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(policy =>
+                {
+                    policy.WithOrigins("http://localhost:3000") // Cambiar por URL del frontend
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
+            });
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -43,11 +55,13 @@ namespace ServiciosTelemedicina
                 app.UseSwaggerUI();
             }
 
-
             app.UseHttpsRedirection();
+
+         
 
             app.UseAuthorization();
 
+            app.UseCors();
 
             app.MapControllers();
 

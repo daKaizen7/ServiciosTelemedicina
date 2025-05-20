@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ServiciosTelemedicina.Models;
+using ServiciosTelemedicina.Models.DTOs;
 
 namespace ServiciosTelemedicina.Services
 {
@@ -12,9 +13,23 @@ namespace ServiciosTelemedicina.Services
             _context = context;
         }
 
-        public async Task<List<Paciente>> GetAllAsync()
+        public async Task<List<PacienteDTO>> GetAllAsync()
         {
-            return await _context.Usuarios.OfType<Paciente>().ToListAsync();
+            return await _context.Usuarios
+                .OfType<Paciente>()
+                .Select(t => new PacienteDTO
+                {
+                    IdUsuario = t.IdUsuario,
+                    Cedula = t.Cedula,
+                    Nombre = t.Nombre,
+                    Apellido = t.Apellido,
+                    Contrasena = t.Contrasena,
+                    Telefono = t.Telefono,
+                    Correo = t.Correo,
+                    FechaNacimiento = t.FechaNacimiento,
+                    Direccion = t.Direccion 
+                })
+                .ToListAsync();
         }
 
         public async Task<Paciente?> GetByIdAsync(int id)

@@ -6,6 +6,6 @@ namespace ServiciosTelemedicina.Models;
 public partial class Administrador : Usuario
 {
     public bool? Activo { get; set; }
+    public bool? Permisos { get; set; }
 
-    public virtual PermisosAdministrador? PermisosAdministradore { get; set; }
 }
