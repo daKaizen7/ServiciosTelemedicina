@@ -4,11 +4,11 @@ namespace ServiciosTelemedicina.Interfaces
 {
     public interface IHistoriaClinica
     {
-        public async Task<List<HistoriasClinica>> GetAllAsync();
-        public async Task<HistoriasClinica?> GetByIdAsync(int id);
-        public async Task<HistoriasClinica> CreateAsync(HistoriasClinica historiaClinica);
-        public async Task<bool> UpdateAsync(int id, HistoriasClinica historiaClinica);
-        public async Task<bool> DeleteAsync(int id);
-        public async Task<bool> ExistsAsync(int id);
+        Task<List<HistoriasClinica>> GetAllAsync();
+        Task<HistoriasClinica?> GetByIdAsync(int id);
+        Task<HistoriasClinica> CreateAsync(HistoriasClinica historiaClinica);
+        Task<bool> UpdateAsync(int id, HistoriasClinica historiaClinica);
+        Task<bool> DeleteAsync(int id);
+        Task<bool> ExistsAsync(int id);
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ServiciosTelemedicina.Models;
 using ServiciosTelemedicina.Services;
-using Telemedicina.Services;
 
 namespace Telemedicina.Controllers
 {

@@ -27,25 +27,43 @@ namespace ServiciosTelemedicina
             builder.Services.AddScoped<IAntecedente, AntecedenteService>();
             builder.Services.AddScoped<IInforme, InformeService>();
             builder.Services.AddScoped<INotificacion, NotificacionService>();
+            builder.Services.AddScoped<IAutenticacion, AutenticacionService>();
 
 
 
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-            builder.Services.AddOpenApi();
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
+
+            // Configuración de CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(policy =>
+                {
+                    policy.WithOrigins("http://localhost:3000") // Cambiar por URL del frontend
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
+            });
+
 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-                app.MapOpenApi();
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
 
             app.UseHttpsRedirection();
 
+         
+
             app.UseAuthorization();
 
+            app.UseCors();
 
             app.MapControllers();
 

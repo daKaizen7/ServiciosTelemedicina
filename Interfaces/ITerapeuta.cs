@@ -1,13 +1,14 @@
 ﻿using ServiciosTelemedicina.Models;
+using ServiciosTelemedicina.Models.DTOs;
 
 namespace ServiciosTelemedicina.Interfaces
 {
     public interface ITerapeuta
     {
-        public async Task<List<Terapeuta>> GetAllAsync();
-        public async Task<Terapeuta?> GetByIdAsync(int id);
-        public async Task<bool> UpdateAsync(int id, Terapeuta terapeuta);
-        public async Task<bool> DeleteAsync(int id);
-        public async Task<bool> ExistsAsync(int id);
+        Task<List<TerapeutaDTO>> GetAllAsync();
+        Task<Terapeuta?> GetByIdAsync(int id);
+        Task<bool> UpdateAsync(int id, Terapeuta terapeuta);
+        Task<bool> DeleteAsync(int id);
+        Task<bool> ExistsAsync(int id);
     }
 }

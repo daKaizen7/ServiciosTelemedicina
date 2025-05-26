@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using ServiciosTelemedicina.Interfaces;
 using ServiciosTelemedicina.Models;
+using ServiciosTelemedicina.Models.DTOs;
 
 namespace ServiciosTelemedicina.Services
 {
@@ -12,9 +14,24 @@ namespace ServiciosTelemedicina.Services
             _context = context;
         }
 
-        public async Task<List<Administrador>> GetAllAsync()
+        public async Task<List<AdministradorDTO>> GetAllAsync()
         {
-            return await _context.Usuarios.OfType<Administrador>().ToListAsync();
+            return await _context.Usuarios
+                .OfType<Administrador>()
+                .Select(t => new AdministradorDTO
+                {
+                    IdUsuario = t.IdUsuario,
+                    Cedula = t.Cedula,
+                    Nombre = t.Nombre,
+                    Apellido = t.Apellido,
+                    Contrasena = t.Contrasena,
+                    Telefono = t.Telefono,
+                    Correo = t.Correo,
+                    FechaNacimiento = t.FechaNacimiento,
+                    Activo = t.Activo,
+                    Permisos = t.Permisos
+                })
+                .ToListAsync();
         }
 
         public async Task<Administrador?> GetByIdAsync(int id)
