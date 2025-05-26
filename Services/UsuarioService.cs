@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ServiciosTelemedicina.Factories;
+using ServiciosTelemedicina.Interfaces;
 using ServiciosTelemedicina.Models;
 using ServiciosTelemedicina.Models.DTOs;
 
 namespace ServiciosTelemedicina.Services
 {
-    public class UsuarioService
+    public class UsuarioService : IUsuario
     {
         private readonly TelemedicinaDbContext _context;
 

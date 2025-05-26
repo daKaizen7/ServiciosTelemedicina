@@ -1,5 +1,6 @@
 
 using Microsoft.EntityFrameworkCore;
+using ServiciosTelemedicina.Interfaces;
 using ServiciosTelemedicina.Models;
 using ServiciosTelemedicina.Services;
 
@@ -13,19 +14,19 @@ namespace ServiciosTelemedicina
 
             builder.Services.AddDbContext<TelemedicinaDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("TelemedicinaDB")));
-
+            
             //Registrar/inyectar los servicios para que queden configuradas correctamente.
-            builder.Services.AddScoped<AdministradorService>();
-            builder.Services.AddScoped<PacienteService>();
-            builder.Services.AddScoped<TerapeutaService>();
-            builder.Services.AddScoped<UsuarioService>();
-            builder.Services.AddScoped<DiagnosticoService>();
-            builder.Services.AddScoped<CitaService>();
-            builder.Services.AddScoped<TratamientoService>();
-            builder.Services.AddScoped<HistoriaClinicaService>();
-            builder.Services.AddScoped<AntecedenteService>();
-            builder.Services.AddScoped<InformeService>();
-            builder.Services.AddScoped<NotificacionService>();
+            builder.Services.AddScoped<IAdministrador, AdministradorService>();
+            builder.Services.AddScoped<IPaciente, PacienteService>();
+            builder.Services.AddScoped<ITerapeuta, TerapeutaService>();
+            builder.Services.AddScoped<IUsuario, UsuarioService>();
+            builder.Services.AddScoped<IDiagnostico, DiagnosticoService>();
+            builder.Services.AddScoped<ICita, CitaService>();
+            builder.Services.AddScoped<ITratamiento, TratamientoService>();
+            builder.Services.AddScoped<IHistoriaClinica, HistoriaClinicaService>();
+            builder.Services.AddScoped<IAntecedente, AntecedenteService>();
+            builder.Services.AddScoped<IInforme, InformeService>();
+            builder.Services.AddScoped<INotificacion, NotificacionService>();
 
 
 

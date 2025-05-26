@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ServiciosTelemedicina.Interfaces;
 using ServiciosTelemedicina.Models;
 
 namespace ServiciosTelemedicina.Services
 {
-    public class PacienteService
+    public class PacienteService : IPaciente
     {
         private readonly TelemedicinaDbContext _context;
 

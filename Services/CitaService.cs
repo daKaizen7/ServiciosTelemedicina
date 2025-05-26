@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ServiciosTelemedicina.Interfaces;
 using ServiciosTelemedicina.Models;
 
 namespace ServiciosTelemedicina.Services
 {
-    public class CitaService
+    public class CitaService : ICita
     {
         private readonly TelemedicinaDbContext _context;
 
