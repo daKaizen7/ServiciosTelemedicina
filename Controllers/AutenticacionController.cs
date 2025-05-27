@@ -18,12 +18,12 @@ namespace ServiciosTelemedicina.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginDto dto)
         {
-            var rol = await _service.AutenticarAsync(dto.Correo, dto.Contrasena);
+            var respuesta = await _service.AutenticarAsync(dto.Correo, dto.Contrasena);
 
-            if (rol == null)
+            if (respuesta == null)
                 return Unauthorized("Correo o contraseña incorrectos.");
 
-            return Ok(new { Rol = rol });
+            return Ok(respuesta);
         }
     }
 }

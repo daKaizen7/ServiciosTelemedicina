@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ServiciosTelemedicina.Services;
 using ServiciosTelemedicina.Models;
+using ServiciosTelemedicina.Interfaces;
 
 namespace ServiciosTelemedicina.Controllers
 {
@@ -32,9 +33,13 @@ namespace ServiciosTelemedicina.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Informe informe)
+        public async Task<ActionResult<Informe>> Create(Informe informe)
         {
+            if (informe == null)
+                return BadRequest("Se debe de enviar el informe completo");
             var created = await _service.CreateAsync(informe);
+            if (created == null)
+                return StatusCode(500, "Error al crear el informe");
             return CreatedAtAction(nameof(GetById), new { id = created.IdInforme }, created);
         }
 

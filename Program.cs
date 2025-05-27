@@ -28,6 +28,9 @@ namespace ServiciosTelemedicina
             builder.Services.AddScoped<IInforme, InformeService>();
             builder.Services.AddScoped<INotificacion, NotificacionService>();
             builder.Services.AddScoped<IAutenticacion, AutenticacionService>();
+            builder.Services.AddScoped<IMedicamentos, MedicamentoService>();
+            builder.Services.AddScoped<ISignosVitales, SignosVitalesService>();
+            builder.Services.AddScoped<IEncuesta, EncuestaService>();
 
 
 

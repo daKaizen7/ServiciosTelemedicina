@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ServiciosTelemedicina.Services;
 using ServiciosTelemedicina.Models;
+using ServiciosTelemedicina.Interfaces;
 
 namespace ServiciosTelemedicina.Controllers
 {
@@ -32,9 +33,13 @@ namespace ServiciosTelemedicina.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Antecedente antecedente)
+        public async Task<ActionResult<Antecedente>> Create(Antecedente antecedente)
         {
+            if (antecedente == null)
+                return BadRequest("Se debe de enviar el antecedente completo");
             var created = await _service.CreateAsync(antecedente);
+            if (created == null)
+                return StatusCode(500, "Error al crear el antecedente");
             return CreatedAtAction(nameof(GetById), new { id = created.IdAntecedente }, created);
         }
 

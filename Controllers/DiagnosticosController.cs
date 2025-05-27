@@ -31,6 +31,17 @@ namespace ServiciosTelemedicina.Controllers
             return Ok(diagnostico);
         }
 
+        [HttpPost]
+        public async Task<ActionResult<Diagnostico>> Create(Diagnostico diagnostico)
+        {
+            if (diagnostico == null)
+                return BadRequest("Se debe de enviar el diagnostico completo");
+            var created = await _service.CreateAsync(diagnostico);
+            if (created == null)
+                return StatusCode(500, "Error al crear el diagnostico");
+            return CreatedAtAction(nameof(GetById), new { id = created.IdDiagnostico }, created);
+        }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, Diagnostico diagnostico)
         {
