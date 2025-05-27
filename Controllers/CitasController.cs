@@ -11,10 +11,10 @@ namespace ServiciosTelemedicina.Controllers
     [Route("api/[controller]")]
     public class CitasController : ControllerBase
     {
-        private readonly CitaService _service;
-        private readonly NotificacionService _serviceNoti;
+        private readonly ICita _service;
+        private readonly INotificacion _serviceNoti;
 
-        public CitasController(CitaService service, NotificacionService serviceNoti)
+        public CitasController(ICita service, INotificacion serviceNoti)
         {
             _service = service;
             _serviceNoti = serviceNoti;

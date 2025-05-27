@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ServiciosTelemedicina.Interfaces;
 using ServiciosTelemedicina.Models;
 using ServiciosTelemedicina.Services;
 
@@ -8,9 +9,9 @@ namespace Telemedicina.Controllers
     [ApiController]
     public class PacientesController : ControllerBase
     {
-        private readonly PacienteService _service;
+        private readonly IPaciente _service;
 
-        public PacientesController(PacienteService service)
+        public PacientesController(IPaciente service)
         {
             _service = service;
         }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ServiciosTelemedicina.Services;
 using ServiciosTelemedicina.Models;
+using ServiciosTelemedicina.Interfaces;
 
 namespace ServiciosTelemedicina.Controllers
 {
@@ -8,10 +9,10 @@ namespace ServiciosTelemedicina.Controllers
     [Route("api/[controller]")]
     public class HistoriasClinicasController : ControllerBase
     {
-        private readonly HistoriaClinicaService _service;
-        private readonly NotificacionService _serviceNoti;
+        private readonly IHistoriaClinica _service;
+        private readonly INotificacion _serviceNoti;
 
-        public HistoriasClinicasController(HistoriaClinicaService service, NotificacionService serviceNoti)
+        public HistoriasClinicasController(IHistoriaClinica service, INotificacion serviceNoti)
         {
             _service = service;
             _serviceNoti = serviceNoti;

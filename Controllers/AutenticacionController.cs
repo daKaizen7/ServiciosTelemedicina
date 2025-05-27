@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ServiciosTelemedicina.Interfaces;
 using ServiciosTelemedicina.Models.DTOs;
 using ServiciosTelemedicina.Services;
 
@@ -8,9 +9,9 @@ namespace ServiciosTelemedicina.Controllers
     [Route("api/[controller]")]
     public class AutenticacionController : ControllerBase
     {
-        private readonly AutenticacionService _service;
+        private readonly IAutenticacion _service;
 
-        public AutenticacionController(AutenticacionService service)
+        public AutenticacionController(IAutenticacion service)
         {
             _service = service;
         }

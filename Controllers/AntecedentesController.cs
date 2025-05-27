@@ -9,9 +9,9 @@ namespace ServiciosTelemedicina.Controllers
     [Route("api/[controller]")]
     public class AntecedentesController : ControllerBase
     {
-        private readonly AntecedenteService _service;
+        private readonly IAntecedente _service;
 
-        public AntecedentesController(AntecedenteService service)
+        public AntecedentesController(IAntecedente service)
         {
             _service = service;
         }

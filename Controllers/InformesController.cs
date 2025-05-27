@@ -9,9 +9,9 @@ namespace ServiciosTelemedicina.Controllers
     [Route("api/[controller]")]
     public class InformesController : ControllerBase
     {
-        private readonly InformeService _service;
+        private readonly IInforme _service;
 
-        public InformesController(InformeService service)
+        public InformesController(IInforme service)
         {
             _service = service;
         }

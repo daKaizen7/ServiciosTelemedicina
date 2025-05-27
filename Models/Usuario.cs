@@ -18,7 +18,7 @@ public abstract partial class Usuario
 
     public string? Correo { get; set; }
 
-    public DateOnly? FechaNacimiento { get; set; }
+    public DateTime? FechaNacimiento { get; set; }
 
     public string? Rol { get; set; }
 

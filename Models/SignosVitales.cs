@@ -1,7 +1,10 @@
-﻿namespace ServiciosTelemedicina.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ServiciosTelemedicina.Models
 {
     public partial class SignosVitales
     {
+        [Key]
         public int IdSignos { get; set; }
 
         public double altura { get; set; }

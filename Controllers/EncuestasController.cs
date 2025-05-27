@@ -9,9 +9,9 @@ namespace ServiciosTelemedicina.Controllers
     [Route("api/[controller]")]
     public class EncuestasController : ControllerBase
     {
-        private readonly EncuestaService _service;
+        private readonly IEncuesta _service;
 
-        public EncuestasController(EncuestaService service)
+        public EncuestasController(IEncuesta service)
         {
             _service = service;
         }

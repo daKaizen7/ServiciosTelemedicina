@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ServiciosTelemedicina.Interfaces;
 using ServiciosTelemedicina.Models;
 using ServiciosTelemedicina.Services;
 
@@ -8,9 +9,9 @@ namespace ServiciosTelemedicina.Controllers
     [Route("api/[controller]")]
     public class AdministradoresController : ControllerBase
     {
-        private readonly AdministradorService _service;
+        private readonly IAdministrador _service;
 
-        public AdministradoresController(AdministradorService service)
+        public AdministradoresController(IAdministrador service)
         {
             _service = service;
         }

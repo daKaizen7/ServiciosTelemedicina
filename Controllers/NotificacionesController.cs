@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ServiciosTelemedicina.Services;
 using ServiciosTelemedicina.Models;
+using ServiciosTelemedicina.Interfaces;
 
 namespace ServiciosTelemedicina.Controllers
 {
@@ -8,9 +9,9 @@ namespace ServiciosTelemedicina.Controllers
     [Route("api/[controller]")]
     public class NotificacionesController : ControllerBase
     {
-        private readonly NotificacionService _service;
+        private readonly INotificacion _service;
 
-        public NotificacionesController(NotificacionService service)
+        public NotificacionesController(INotificacion service)
         {
             _service = service;
         }
