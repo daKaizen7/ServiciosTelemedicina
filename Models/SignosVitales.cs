@@ -7,13 +7,13 @@ namespace ServiciosTelemedicina.Models
         [Key]
         public int IdSignos { get; set; }
 
-        public double altura { get; set; }
+        public decimal altura { get; set; }
 
-        public double peso { get; set; }
+        public decimal peso { get; set; }
 
-        public double masaCorporal { get; set; }
+        public decimal masaCorporal { get; set; }
 
-        public double Temperatura { get; set; }
+        public decimal Temperatura { get; set; }
 
         public int FrecuenciaRespiratoria { get; set; }
 

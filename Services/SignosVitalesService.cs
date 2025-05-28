@@ -20,7 +20,7 @@ namespace ServiciosTelemedicina.Services
 
         public async Task<SignosVitales?> GetByIdAsync(int id)
         {
-            return await _context.SignosVitales.FirstOrDefaultAsync(n => n.IdSignos == id);
+            return await _context.SignosVitales.FirstOrDefaultAsync(n => n.pacienteId == id);
         }
 
         public async Task<SignosVitales> CreateAsync(SignosVitales signosvitales)

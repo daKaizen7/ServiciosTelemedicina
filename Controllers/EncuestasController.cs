@@ -35,6 +35,8 @@ namespace ServiciosTelemedicina.Controllers
         [HttpPost]
         public async Task<ActionResult<Encuestas>> Create(Encuestas encuestas)
         {
+            DateTime fecha = DateTime.Now;
+            encuestas.FechaCreacion = fecha;
             if (encuestas == null)
                 return BadRequest("Se debe de enviar la encuestas completa");
             var created = await _service.CreateAsync(encuestas);

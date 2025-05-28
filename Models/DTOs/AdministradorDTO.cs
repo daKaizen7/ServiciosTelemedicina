@@ -9,7 +9,7 @@
     public string Contrasena { get; set; } = null!;
     public string? Telefono { get; set; }
     public string? Correo { get; set; }
-    public DateTime? FechaNacimiento { get; set; }
+    public DateOnly? FechaNacimiento { get; set; }
     public bool? Activo { get; set; }         // Administrador
     public bool? Permisos { get; set; }        // Administrador
     }
