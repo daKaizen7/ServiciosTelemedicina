@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol;
 using ServiciosTelemedicina.Interfaces;
 using ServiciosTelemedicina.Models;
 using ServiciosTelemedicina.Models.DTOs;
@@ -18,7 +19,8 @@ namespace ServiciosTelemedicina.Services
         {
             var usuario = await _context.Usuarios
                 .FirstOrDefaultAsync(u => u.Correo == correo && u.Contrasena == contrasena);
-
+            if (usuario == null)
+                return null;
             return new RespuestaLoginDTO
             {
                 IdUsuario = usuario!.IdUsuario,

@@ -1,7 +1,10 @@
-﻿namespace ServiciosTelemedicina.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ServiciosTelemedicina.Models
 {
     public partial class Encuestas
     {
+        [Key]
         public int Id { get; set; }
         public string? Nombre { get; set; }
         public string? Url { get; set; }
