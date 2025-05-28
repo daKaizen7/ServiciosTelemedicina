@@ -35,8 +35,7 @@ namespace ServiciosTelemedicina.Services
 
         public async Task<Paciente?> GetByIdAsync(int id)
         {
-            return await _context.Usuarios.OfType<Paciente>()
-                .FirstOrDefaultAsync(p => p.IdUsuario == id);
+            return await _context.Usuarios.OfType<Paciente>().FirstOrDefaultAsync(p => p.IdUsuario == id);
         }
 
         public async Task<bool> UpdateAsync(int id, Paciente paciente)

@@ -36,8 +36,7 @@ namespace ServiciosTelemedicina.Services
 
         public async Task<Terapeuta?> GetByIdAsync(int id)
         {
-            return await _context.Usuarios.OfType<Terapeuta>()
-                .FirstOrDefaultAsync(t => t.IdUsuario == id);
+            return await _context.Usuarios.OfType<Terapeuta>().FirstOrDefaultAsync(t => t.IdUsuario == id);
         }
 
         public async Task<bool> UpdateAsync(int id, Terapeuta terapeuta)

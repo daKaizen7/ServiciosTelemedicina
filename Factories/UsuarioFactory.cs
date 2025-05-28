@@ -5,8 +5,8 @@ namespace ServiciosTelemedicina.Factories
 {
         public static class UsuarioFactory
         {
-            public static Usuario? CrearUsuario(UsuarioDto dto)
-            {
+            public static Usuario? CrearUsuario(UsuarioDTO dto)
+            {   
                 // Verifica si es Administrador
                 if (dto.Activo.HasValue)
                 {

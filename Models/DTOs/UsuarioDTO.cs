@@ -2,8 +2,10 @@
   especialmente entre la capa de presentación (controladores) y la capa de negocio (servicios, lógica, base de datos).*/
 namespace ServiciosTelemedicina.Models.DTOs
 {
-    public class UsuarioDto
+    public class UsuarioDTO
 {
+
+    public int IdUsuario { get; set; }
     public int Cedula { get; set; }
     public string Nombre { get; set; } = null!;
     public string Apellido { get; set; } = null!;
