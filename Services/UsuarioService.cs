@@ -15,9 +15,23 @@ namespace ServiciosTelemedicina.Services
             _context = context;
         }
 
-        public async Task<List<Usuario>> GetAllAsync()
+        public async Task<List<ListarUsuarioDTO>> GetAllAsync()
         {
-            return await _context.Usuarios.ToListAsync();
+            return await _context.Usuarios
+                .OfType<Usuario>()
+                .Select(t => new ListarUsuarioDTO
+                {
+                    IdUsuario = t.IdUsuario,
+                    Cedula = t.Cedula,
+                    Nombre = t.Nombre,
+                    Apellido = t.Apellido,
+                    Contrasena = t.Contrasena,
+                    Telefono = t.Telefono,
+                    Correo = t.Correo,
+                    FechaNacimiento = t.FechaNacimiento,
+                    Rol = t.Rol
+                })
+                .ToListAsync();
         }
 
         public async Task<Usuario?> GetByIdAsync(int id)
@@ -25,7 +39,7 @@ namespace ServiciosTelemedicina.Services
             return await _context.Usuarios.FirstOrDefaultAsync(u => u.IdUsuario == id);
         }
 
-        public async Task<Usuario> CrearUsuarioAsync(UsuarioDto dto)
+        public async Task<Usuario> CrearUsuarioAsync(UsuarioDTO dto)
         {
             var usuario = UsuarioFactory.CrearUsuario(dto);//Aquí se llama al Factory Method para crear el usuario según su rol.
             _context.Usuarios.Add(usuario);

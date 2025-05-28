@@ -36,7 +36,7 @@ namespace ServiciosTelemedicina.Controllers
 
 
         [HttpPost]//Para seguir el Factory Method, los usuarios unicamente se crean mediante el controlador de usuarios. 
-        public async Task<ActionResult<Usuario>> CrearUsuario([FromBody] UsuarioDto dto)//Se usa el dto
+        public async Task<ActionResult<Usuario>> CrearUsuario([FromBody] UsuarioDTO dto)//Se usa el dto
         {
             var created = await _service.CrearUsuarioAsync(dto);//Luego, toda la lógica de creación se delega al servicio.
 
