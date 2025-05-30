@@ -20,7 +20,7 @@ namespace ServiciosTelemedicina.Services
 
         public async Task<HistoriasClinica?> GetByIdAsync(int id)
         {
-            return await _context.HistoriasClinicas.FirstOrDefaultAsync(h => h.IdHistClin == id);
+            return await _context.HistoriasClinicas.FirstOrDefaultAsync(h => h.IdPaciente == id);
         }
 
         public async Task<HistoriasClinica> CreateAsync(HistoriasClinica historiaClinica)
