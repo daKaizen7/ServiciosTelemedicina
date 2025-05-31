@@ -36,6 +36,15 @@ namespace ServiciosTelemedicina.Controllers
             return Ok(cita);
         }
 
+        [HttpGet("all/{id}")]
+        public async Task<IActionResult> GetByIdAll(int id)
+        {
+            var historia = await _service.GetByIdCitAsync(id);
+            if (historia == null)
+                return NotFound();
+            return Ok(historia);
+        }
+
         [HttpPost]
         public async Task<ActionResult<Cita>> Create(Cita cita, bool validacionNoti)
         {

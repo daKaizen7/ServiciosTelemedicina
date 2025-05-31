@@ -6,6 +6,8 @@ namespace ServiciosTelemedicina.Interfaces
     {
         Task<List<Cita>> GetAllAsync();
         Task<Cita?> GetByIdAsync(int id);
+
+        Task<List<Cita>> GetByIdCitAsync(int id);
         Task<Cita> CreateAsync(Cita cita);
         Task<bool> UpdateAsync(int id, Cita cita);
         Task<bool> DeleteAsync(int id);

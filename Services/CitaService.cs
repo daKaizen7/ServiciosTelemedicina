@@ -22,6 +22,10 @@ namespace ServiciosTelemedicina.Services
         {
             return await _context.Citas.FirstOrDefaultAsync(c => c.IdCita == id);
         }
+        public async Task<List<Cita>> GetByIdCitAsync(int id)
+        {
+            return await _context.Citas.Where(h => h.IdPaciente == id).ToListAsync();
+        }
 
         public async Task<Cita> CreateAsync(Cita cita)
         {
