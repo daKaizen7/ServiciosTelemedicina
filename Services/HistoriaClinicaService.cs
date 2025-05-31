@@ -18,9 +18,9 @@ namespace ServiciosTelemedicina.Services
             return await _context.HistoriasClinicas.ToListAsync();
         }
 
-        public async Task<HistoriasClinica?> GetByIdAsync(int id)
+        public async Task<List<HistoriasClinica>> GetByIdAsync(int id)
         {
-            return await _context.HistoriasClinicas.FirstOrDefaultAsync(h => h.IdPaciente == id);
+            return await _context.HistoriasClinicas.Where(h => h.IdPaciente == id).ToListAsync();
         }
 
         public async Task<HistoriasClinica> CreateAsync(HistoriasClinica historiaClinica)
