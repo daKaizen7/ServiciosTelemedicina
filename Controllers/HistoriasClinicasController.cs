@@ -34,6 +34,15 @@ namespace ServiciosTelemedicina.Controllers
             return Ok(historia);
         }
 
+        [HttpGet("all/{id}")]
+        public async Task<IActionResult> GetByIdAll(int id)
+        {
+            var historia = await _service.GetByIdHistAsync(id);
+            if (historia == null)
+                return NotFound();
+            return Ok(historia);
+        }
+
         [HttpPost]
         public async Task<ActionResult<HistoriasClinica>> Create(HistoriasClinica historiasClinica)
         {
